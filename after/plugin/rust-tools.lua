@@ -16,6 +16,9 @@ rt.setup({
             -- code action groups
             vim.keymap.set("n", "<Leader>.", rt.code_action_group.code_action_group, keymap_opts)
 
+            -- Runnables
+            vim.keymap.set("n", "<leader>rr", rt.runnables.runnables)
+            vim.keymap.set("n", "<leader>dd", rt.debuggables.debuggables)
         end,
         settings = {
             -- to enable rust-analyzer settings visit:

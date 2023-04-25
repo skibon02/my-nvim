@@ -11,14 +11,28 @@ return require('packer').startup(function(use)
     }
 
     --theme
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
-    vim.cmd('colorscheme rose-pine')
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+    })
+    use { "ellisonleao/gruvbox.nvim" }
+    use { "Mofiqul/vscode.nvim" }
+    use { "chriskempson/base16-vim" }
+    use { "jacoborus/tender.vim" }
+    use 'Mofiqul/dracula.nvim'
 
-    use 'williamboman/mason.nvim'    
-    use 'williamboman/mason-lspconfig.nvim'
+    use {'williamboman/mason.nvim',
+    config = function()
+        require("mason").setup({})
+    end}
+    use {'williamboman/mason-lspconfig.nvim',
+    config = function()
+        require("mason-lspconfig").setup({
+        })
+    end}
 
     use 'neovim/nvim-lspconfig' 
-    use { 'simrat39/rust-tools.nvim', commit = 'b50125d342b7c5b14d331476d0e0bec9b4aebcb7' }
+    use 'simrat39/rust-tools.nvim'
 
     -- Completion framework:
     use 'hrsh7th/nvim-cmp' 
@@ -34,18 +48,18 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer' 
     use 'hrsh7th/vim-vsnip'
 
-    use 'nvim-treesitter/nvim-treesitter'
+    use('nvim-treesitter/nvim-treesitter', { run = 'TSUpdate' })
+    use('nvim-treesitter/nvim-treesitter-context')
+    use('nvim-treesitter/nvim-treesitter-refactor')
+    use('nvim-treesitter/nvim-treesitter-textobjects')
 
     --navigation
     use 'theprimeagen/harpoon'
     use 'theprimeagen/vim-be-good'
 
-
-
     --debugging
-    use 'mfussenegger/nvim-dap' 
+    use { 'mfussenegger/nvim-dap'} 
     use { 'jedrzejboczar/nvim-dap-cortex-debug', requires = 'mfussenegger/nvim-dap' }
-    use 'puremourning/vimspector'
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
     use({ 'theHamsta/nvim-dap-virtual-text', as = 'dap-text' })
@@ -55,4 +69,20 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
 
+    
+    -- Extension To Set Up Clangd Language Server --
+    use 'p00f/clangd_extensions.nvim'
+
+
+    -- Auto Pairs --
+    use {'windwp/nvim-autopairs'}
+
+    
+    -- Error Displayer --
+    use { "folke/trouble.nvim" }  -- Docs say to require web-devicons but that didn't work for me.
+
+    
+    use 'nvim-tree/nvim-web-devicons'
+
+    use 'simrat39/symbols-outline.nvim'
 end)
