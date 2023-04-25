@@ -19,6 +19,9 @@ rt.setup({
             -- Runnables
             vim.keymap.set("n", "<leader>rr", rt.runnables.runnables)
             vim.keymap.set("n", "<leader>dd", rt.debuggables.debuggables)
+
+            vim.keymap.del("n", "<leader>tr")
+            vim.keymap.set("n", "<leader>tr", "<cmd>Floaterm cargo run<cr>")
         end,
         settings = {
             -- to enable rust-analyzer settings visit:
