@@ -6,5 +6,5 @@ vim.g.floaterm_width = 0.99
 vim.g.floaterm_height = 0.99
 
 -- Lazygit --
-vim.keymap.set('n', '<leader>lg', '<cmd>FloatermNew lazygit<CR>')
+vim.keymap.set('n', '<leader>gl', '<cmd>FloatermNew lazygit<CR>')
 -------------
