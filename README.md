@@ -16,3 +16,19 @@ Mason deps:
 - lua-language-server
 
 install them with `:MasonInstall codelldb rust-analyzer lua-language-server`
+
+### Screenshots
+![image](https://user-images.githubusercontent.com/25740003/234578579-02dfed3a-84f2-4b0c-83d5-5d2041c01ba8.png)
+![image](https://user-images.githubusercontent.com/25740003/234580027-289ab9c4-805e-4e6d-a7d8-ed846228aadb.png)
+![image](https://user-images.githubusercontent.com/25740003/234606380-88090838-5e09-456e-8b1d-68b62bddb7a8.png)
+![image](https://user-images.githubusercontent.com/25740003/234607716-24c2a0cb-0972-48cf-9cc4-8d37fd85e682.png)
+
+
+
+### TODO:
+- fix debugging
+
+### Other links
+https://sharksforarms.dev/posts/neovim-rust/
+
+https://sharksforarms.dev/posts/neovim-rust/
