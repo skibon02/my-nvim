@@ -16,12 +16,12 @@ rt.setup({
             -- code action groups
             vim.keymap.set("n", "<Leader>.", rt.code_action_group.code_action_group, keymap_opts)
 
+            print('hello')
             -- Runnables
             vim.keymap.set("n", "<leader>rr", rt.runnables.runnables)
-            vim.keymap.set("n", "<leader>dd", rt.debuggables.debuggables)
+            vim.keymap.set("n", "<leader>rd", rt.debuggables.debuggables)
 
-            vim.keymap.del("n", "<leader>tr")
-            vim.keymap.set("n", "<leader>tr", "<cmd>Floaterm cargo run<cr>")
+            vim.keymap.set("n", "<leader>tr", "<cmd>Floaterm cargo run<cr>", {noremap = true})
         end,
         settings = {
             -- to enable rust-analyzer settings visit:
