@@ -59,17 +59,18 @@ return require('packer').startup(function(use)
 
     --debugging
     use { 'mfussenegger/nvim-dap'} 
-    use { 'jedrzejboczar/nvim-dap-cortex-debug', requires = 'mfussenegger/nvim-dap' }
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-
     use({ 'theHamsta/nvim-dap-virtual-text', as = 'dap-text' })
+    use { 'jedrzejboczar/nvim-dap-cortex-debug', requires = 'mfussenegger/nvim-dap' }
+
+    -- cmake build
+    use 'Civitasv/cmake-tools.nvim'
 
     --usefull stuff
     use 'voldikss/vim-floaterm'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
 
-    
     -- Extension To Set Up Clangd Language Server --
     use 'p00f/clangd_extensions.nvim'
 
@@ -77,11 +78,9 @@ return require('packer').startup(function(use)
     -- Auto Pairs --
     use {'windwp/nvim-autopairs'}
 
-    
     -- Error Displayer --
     use { "folke/trouble.nvim" }  -- Docs say to require web-devicons but that didn't work for me.
 
-    
     use 'nvim-tree/nvim-web-devicons'
 
     use 'simrat39/symbols-outline.nvim'
