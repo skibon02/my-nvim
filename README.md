@@ -27,6 +27,8 @@ install them with `:MasonInstall codelldb rust-analyzer lua-language-server`
 
 ### TODO:
 - fix debugging
+- maybe some cmake init snippets
+- breakpoint icon + arrow
 
 ### Other links
 https://sharksforarms.dev/posts/neovim-rust/
