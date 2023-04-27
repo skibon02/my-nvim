@@ -59,9 +59,9 @@ return require('packer').startup(function(use)
 
     --debugging
     use { 'mfussenegger/nvim-dap'} 
-    use { 'jedrzejboczar/nvim-dap-cortex-debug', requires = 'mfussenegger/nvim-dap' }
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use({ 'theHamsta/nvim-dap-virtual-text', as = 'dap-text' })
+    use { 'jedrzejboczar/nvim-dap-cortex-debug', requires = 'mfussenegger/nvim-dap' }
 
     -- cmake build
     use 'Civitasv/cmake-tools.nvim'

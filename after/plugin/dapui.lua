@@ -1,4 +1,16 @@
-require("dapui").setup{ mappings = { remove = "b" } }
+require("dapui").setup{
+    mappings = { remove = "b" },
+    layouts = {
+        {
+            position = "left",
+            size = 40,
+            elements = {
+                { id = 'scopes', size = 0.4 },
+                { id = 'rtt', size = 0.6 }
+            }
+        }
+    }
+}
 
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
