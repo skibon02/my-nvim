@@ -8,14 +8,15 @@ First of all, install Packer using their instruction. Next, open nvim and run `:
 
 `init.sh` executes `cp` for Alacritty config, you should build and install **Alacritty** manually.
 
-Also, you need clangd and clang installed on your system for C/C++ Lsp integration and debugging. Maybe, you'll have to install `g++-12`
+Also, you need clangd and clang installed on your system for C/C++ Lsp integration and debugging.
 
 Mason deps:
 - codelldb
 - rust-analyzer
 - lua-language-server
+- clangd
 
-install them with `:MasonInstall codelldb rust-analyzer lua-language-server`
+install them with `:MasonInstall codelldb rust-analyzer lua-language-server clangd`
 
 ### Screenshots
 ![image](https://user-images.githubusercontent.com/25740003/234578579-02dfed3a-84f2-4b0c-83d5-5d2041c01ba8.png)
