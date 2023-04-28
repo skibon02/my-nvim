@@ -1,3 +1,4 @@
 #!/bin/bash
 
-mkdir ~/.config/alacritty && cp alacritty.yml ~/.config/alacritty/
+mkdir ~/.config/alacritty
+cp alacritty.yml ~/.config/alacritty/
