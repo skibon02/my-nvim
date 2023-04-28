@@ -66,3 +66,22 @@ lsp.lua_ls.setup {
         }
     }
 }
+
+
+
+-- LSP
+vim.keymap.set("n", "H", vim.lsp.buf.hover)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references)
+vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename)
+vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action)
+
+vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help)
+
+vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
+
+-- Goto previous/next diagnostic warning/error
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
+
+

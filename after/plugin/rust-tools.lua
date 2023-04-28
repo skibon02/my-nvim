@@ -27,29 +27,12 @@ rt.setup({
             -- code action groups
             --vim.keymap.set("n", "<Leader>.", rt.code_action_group.code_action_group, keymap_opts)
 
-            print('hello')
             -- Runnables
             vim.keymap.set("n", "<leader>rr", rt.runnables.runnables)
             vim.keymap.set("n", "<leader>rd", rt.debuggables.debuggables)
 
             -- Floaterm
             vim.keymap.set('n', '<leader>tr', "<cmd>FloatermNew cargo run<cr>")
-
-            -- LSP
-            vim.keymap.set("n", "H", vim.lsp.buf.hover, keymap_opts)
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, keymap_opts)
-            vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, keymap_opts)
-            vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, keymap_opts)
-            vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, keymap_opts)
-
-            vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help, keymap_opts)
-
-            vim.keymap.set("n", "ga", vim.lsp.buf.code_action, keymap_opts)
-
-            -- Goto previous/next diagnostic warning/error
-            vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, keymap_opts)
-            vim.keymap.set("n", "g]", vim.diagnostic.goto_next, keymap_opts)
-
 
             -- Prepare dap-ui
             setupDapuiCortex()
