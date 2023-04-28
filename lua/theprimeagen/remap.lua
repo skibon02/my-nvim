@@ -50,3 +50,7 @@ vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Left>", "<nop>")
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Right>", "<nop>")
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Up>", "<nop>")
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Down>", "<nop>")
+
+-- copy all
+vim.keymap.set("n", "<leader>ca", 'ggVG"+y<C-o>')
+
