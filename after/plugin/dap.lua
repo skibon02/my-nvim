@@ -6,13 +6,15 @@ dap.defaults.fallback.exception_breakpoints = { 'all' }
 
 local mason_registry = require("mason-registry")
 local codelldb = mason_registry.get_package("codelldb") -- note that this will error if you provide a non-existent package name
-print(codelldb:get_install_path());
+
+local codelldb_path = codelldb:get_install_path()
+-- codelldb_path = "/home/skygrel19/.vscode/extensions/vadimcn.vscode-lldb-1.9.1";
 
 dap.adapters.codelldb = {
   type = 'server',
   port = "${port}",
   executable = {
-    command = codelldb:get_install_path() .. '/extension/adapter/codelldb',
+    command = codelldb_path .. '/extension/adapter/codelldb',
     args = {"--port", "${port}"},
 
   }

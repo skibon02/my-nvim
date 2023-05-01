@@ -29,6 +29,7 @@ function setupDapuiRust()
         mappings = { remove = "b" },
     }
 end
+setupDapuiRust()
 
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -40,4 +41,4 @@ vim.keymap.set("n", "<leader>cdb", function()
     dap.terminate()
     dapui.close()
 end)
-vim.keymap.set("v", "<C-H>", function() dapui.eval() end)
+vim.keymap.set("n", "<C-H>", function() dapui.eval() end)
