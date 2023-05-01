@@ -37,8 +37,6 @@ Github Copilot can be installed manually with it's instruction.
 
 ### TODO:
 - copilot remaps
-- switch codelldb parh to mason package
-- fix debugging
 - maybe some cmake init snippets
 - breakpoint icon + arrow
 
