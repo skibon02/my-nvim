@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<C-y>", function()
+    -- Here will be go up directory in nvim file explorer
+end)
 vim.keymap.set("n", "<leader>pz", function()
     vim.api.nvim_command(":w")
     vim.cmd.Ex()
