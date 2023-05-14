@@ -58,5 +58,5 @@ vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Down>", "<nop>")
 vim.keymap.set("n", "<leader>ca", 'ggVG"+y<C-o>')
 
 -- not rly useful
-vim.keymap.set({ 'n', 'i', 'v', 'x' }, "q", "<nop>")
-vim.keymap.set({ 'n', 'i', 'v', 'x' }, "@", "<nop>")
+vim.keymap.set({ 'n', 'v', 'x' }, "q", "<nop>")
+vim.keymap.set({ 'n', 'v', 'x' }, "@", "<nop>")

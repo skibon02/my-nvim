@@ -30,19 +30,19 @@ cmp.setup({
 
 
         ['<CR>'] = cmp.mapping.confirm({ -- Enter to complete
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        })
+            select = false,
+        }),
+        ['<C-e>'] = cmp.mapping.abort(),
     },
     -- Installed sources:
     sources = {
-        { name = 'path' },                              -- file paths
-        { name = 'nvim_lsp'},      -- from language server
-        { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
+        { name = 'nvim_lsp', keyword_length = 1},      -- from language server
+        { name = 'nvim_lsp_signature_help', keyword_length = 1},            -- display function signatures with current parameter emphasized
         { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
-        --{ name = 'buffer', keyword_length = 2 },        -- source current buffer
+        { name = 'path' },                              -- file paths
+        { name = 'buffer', keyword_length = 3 },        -- source current buffer
         --{ name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
-        --{ name = 'calc'},                               -- source for math calculation
+        { name = 'calc'},                               -- source for math calculation
     },
     window = {
         completion = cmp.config.window.bordered(),
@@ -50,6 +50,19 @@ cmp.setup({
     },
     formatting = {
         fields = {'menu', 'abbr', 'kind'},
+        format = function(entry, item)
+            local menu_icon = {
+                nvim_lsp = 'λ',
+                nvim_lua = 'λ',
+                nvim_lsp_signature_help = 'λ',
+                path = 'Ω',
+                buffer = 'Ω',
+                calc = 'Ω',
+            }
+
+            item.menu = menu_icon[entry.source.name]
+            return item
+        end,
     },
 })
 
@@ -84,4 +97,20 @@ vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
 
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    border = 'rounded',
+    source = 'always',
+  },
+})
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {border = 'rounded'}
+)
 
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {border = 'rounded'}
+)
