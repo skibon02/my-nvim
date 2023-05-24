@@ -1,25 +1,66 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<C-y>", function()
-    -- Here will be go up directory in nvim file explorer
-end)
+vim.opt.timeoutlen = 2000
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc=":Ex"})
 vim.keymap.set("n", "<leader>pz", function()
     vim.api.nvim_command(":w")
     vim.cmd.Ex()
 end)
 
+local function map(mode, lhs, rhs, opts)
+    local options = { noremap = true, silent = true }
+    if opts then
+        if opts.desc then
+            opts.desc = "keymaps.lua: " .. opts.desc
+        end
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.keymap.set(mode, lhs, rhs, options)
+end
 
-vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true })
+local nxo = {"n", "x", "o"}
+map(nxo, "n", "j")
+map(nxo, "e", "k")
+map(nxo, "m", "h")
+map(nxo, "i", "l")
+
+map(nxo, "l", "e")
+map(nxo, "k", "n")
+map(nxo, "j", "m")
+map(nxo, "h", "i")
+
+map(nxo, "v", "g")
+map(nxo, "g", "v")
+map(nxo, "vv", "gg")
+
+map(nxo, "w", "b")
+map(nxo, "b", "w")
+map(nxo, "W", "B")
+map(nxo, "B", "W")
+
+map(nxo, "N", "J")
+map(nxo, "E", "K")
+map(nxo, "M", "H")
+map(nxo, "I", "L")
+
+map(nxo, "L", "E")
+map(nxo, "K", "N")
+map(nxo, "J", "M")
+map(nxo, "H", "I")
+
+map(nxo, "V", "G")
+map(nxo, "G", "V")
+map(nxo, "<C-g>", "<C-v>")
 
 
-vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true })
-vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true })
+map(nxo, '<C-n>', '<C-d>zz')
+map(nxo, '<C-e>', '<C-u>zz')
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.api.nvim_set_keymap('x', '<leader>p', '\"_dP', { noremap = true })
+map('n', 'k', 'nzzzv')
+map('n', 'K', 'Nzzzv')
+
+vim.keymap.set("v", "N", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "E", ":m '<-2<CR>gv=gv")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -35,10 +76,11 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 
 -- Navigate Windows
-vim.keymap.set("n", "<leader>h", "<C-w>h")
-vim.keymap.set("n", "<leader>j", "<C-w>j")
-vim.keymap.set("n", "<leader>k", "<C-w>k")
-vim.keymap.set("n", "<leader>l", "<C-w>l")
+vim.keymap.set("n", "<leader>m", "<C-w>h")
+vim.keymap.set("n", "<leader>n", "<C-w>j")
+vim.keymap.set("n", "<leader>e", "<C-w>k")
+vim.keymap.set("n", "<leader>i", "<C-w>l")
+vim.keymap.set("n", "<leader>o", "<cmd>on<CR>", { desc = "Make current window only window." })
 
 -- Resize Windows
 vim.keymap.set("n", "<C-Left>", "5<C-w><")
@@ -46,9 +88,8 @@ vim.keymap.set("n", "<C-Right>", "5<C-w>>")
 vim.keymap.set("n", "<C-Up>", "5<C-w>+")
 vim.keymap.set("n", "<C-Down>", "5<C-w>-")
 
-vim.keymap.set("n", "<leader>o", "<cmd>on<CR>", { desc = "Make current window only window." })
 
--- Disable arrow keys     KEK
+-- Disable arrow keys
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Left>", "<nop>")
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Right>", "<nop>")
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Up>", "<nop>")
