@@ -22,8 +22,8 @@ rt.setup({
     server = {
         on_attach = function(_, bufnr)
             local keymap_opts = { buffer = bufnr }
-            -- Hover actions
-            vim.keymap.set("n", "<Leader>.", rt.hover_actions.hover_actions, keymap_opts )
+            -- code action groups
+            vim.keymap.set("n", "<C-space>", rt.code_action_group.code_action_group, keymap_opts)
 
             -- Runnables
             vim.keymap.set("n", "<leader>rr", rt.runnables.runnables, {desc='Rust run'})
