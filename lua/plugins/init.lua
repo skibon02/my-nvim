@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter-textobjects')
 
     --navigation
-    use 'theprimeagen/harpoon'
+    --use 'theprimeagen/harpoon'
     use 'theprimeagen/vim-be-good'
 
     --debugging
@@ -61,14 +61,13 @@ return require('packer').startup(function(use)
 
     -- cmake build
     use 'Civitasv/cmake-tools.nvim'
+    -- Extension To Set Up Clangd Language Server --
+    use 'p00f/clangd_extensions.nvim'
 
     --usefull stuff
     use 'voldikss/vim-floaterm'
     use 'mbbill/undotree'
-    use 'tpope/vim-fugitive'
 
-    -- Extension To Set Up Clangd Language Server --
-    use 'p00f/clangd_extensions.nvim'
 
 
     -- Auto Pairs --
