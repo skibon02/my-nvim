@@ -1,3 +1,4 @@
+require("plugins")
 require("theprimeagen")
 
 function setupDapuiCortex()

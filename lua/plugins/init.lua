@@ -9,12 +9,9 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    --theme
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-    })
+    -- themes
     use { "ellisonleao/gruvbox.nvim" }
+    use { "shaunsingh/nord.nvim" }
     use { "Mofiqul/vscode.nvim" }
     use { "chriskempson/base16-vim" }
     use { "jacoborus/tender.vim" }
@@ -85,15 +82,21 @@ return require('packer').startup(function(use)
     use 'simrat39/symbols-outline.nvim'
 
     -- Which Key --
+    use { "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end }
+
     use {
-        "folke/which-key.nvim", config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-        require("which-key").setup {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
-    end
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 end)

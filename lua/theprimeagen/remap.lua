@@ -1,10 +1,8 @@
-vim.g.mapleader = " "
-vim.opt.timeoutlen = 2000
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc=":Ex"})
-vim.keymap.set("n", "<leader>pz", function()
+vim.keymap.set("n", "<leader>bh", vim.cmd.Ex, {desc="Exit"})
+vim.keymap.set("n", "<leader>bn", function()
     vim.api.nvim_command(":w")
     vim.cmd.Ex()
-end)
+end, {desc="Save and exit"})
 
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
@@ -17,9 +15,9 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
-local nxo = {"n", "x", "o"}
-map(nxo, "n", "j")
-map(nxo, "e", "k")
+local nxo = {"n", "x"}
+map(nxo, "n", "gj")
+map(nxo, "e", "gk")
 map(nxo, "m", "h")
 map(nxo, "i", "l")
 
@@ -49,11 +47,12 @@ map(nxo, "H", "I")
 
 map(nxo, "V", "G")
 map(nxo, "G", "V")
-map(nxo, "<C-g>", "<C-v>")
 
 
 map(nxo, '<C-n>', '<C-d>zz')
 map(nxo, '<C-e>', '<C-u>zz')
+map(nxo, '<c-m>', '<c-o>')
+map(nxo, '<c-i>', '<c-i>')
 
 
 map('n', 'k', 'nzzzv')
@@ -63,16 +62,15 @@ vim.keymap.set("v", "N", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "E", ":m '<-2<CR>gv=gv")
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set("x", "<leader>p", [["_dP]], {desc = 'Paste w/o copy'})
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>fa", vim.lsp.buf.format, {desc='Format document'})
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {noremap = true, desc='Replace cur word with...'})
 
 
 -- Navigate Windows
@@ -96,7 +94,7 @@ vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Up>", "<nop>")
 vim.keymap.set({ 'n', 'i', 'v', 'x' }, "<Down>", "<nop>")
 
 -- copy all
-vim.keymap.set("n", "<leader>ca", 'ggVG"+y<C-o>')
+vim.keymap.set("n", "<leader>ca", 'ggVG"+y<C-o>', {noremap = true, desc = 'Copy all to clipboard'})
 
 -- not rly useful
 vim.keymap.set({ 'n', 'v', 'x' }, "q", "<nop>")
