@@ -25,14 +25,14 @@ cmp.setup({
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<Tab>'] = cmp.mapping.select_next_item(),
 
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-e>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-n>'] = cmp.mapping.scroll_docs(4),
 
 
         ['<CR>'] = cmp.mapping.confirm({ -- Enter to complete
             select = false,
         }),
-        ['<C-e>'] = cmp.mapping.abort(),
+        ['<C-f>'] = cmp.mapping.abort(),
     },
     -- Installed sources:
     sources = {
@@ -83,19 +83,17 @@ lsp.lua_ls.setup {
 
 
 -- LSP
-vim.keymap.set("n", "H", vim.lsp.buf.hover)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references)
-vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename)
-vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "M", vim.lsp.buf.hover)
+vim.keymap.set("n", "vd", vim.lsp.buf.definition, {noremap = true, desc = 'Go to definition'})
+vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, {noremap = true, desc='Find references'})
+vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, {noremap = true, desc = 'Rename symbol'})
+vim.keymap.set("n", "<leader>va", vim.lsp.buf.code_action, {desc = 'Code actions'})
 
-vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help)
-
-vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
+vim.keymap.set("i", "<c-m>", vim.lsp.buf.signature_help, {noremap = true})
 
 -- Goto previous/next diagnostic warning/error
-vim.keymap.set("n", "g[", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "g]", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>[", vim.diagnostic.goto_prev, {desc='Diag prev'})
+vim.keymap.set("n", "<leader>]", vim.diagnostic.goto_next, {desc='Diag next'})
 
 vim.diagnostic.config({
   virtual_text = false,

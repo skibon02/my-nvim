@@ -1,8 +1,8 @@
-vim.keymap.set("n", "<leader>bh", vim.cmd.Ex, {desc="Exit"})
-vim.keymap.set("n", "<leader>bn", function()
-    vim.api.nvim_command(":w")
-    vim.cmd.Ex()
-end, {desc="Save and exit"})
+--vim.keymap.set("n", "<leader>bh", vim.cmd.Ex, {desc="Exit"})
+--vim.keymap.set("n", "<leader>bn", function()
+    --vim.api.nvim_command(":w")
+    --vim.cmd.Ex()
+--end, {desc="Save and exit"})
 
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
@@ -15,44 +15,47 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
-local nxo = {"n", "x"}
-map(nxo, "n", "gj")
-map(nxo, "e", "gk")
-map(nxo, "m", "h")
-map(nxo, "i", "l")
+local nx = {"n", "x"}
+local nxo = {"n", "x", "o"}
+map(nx, "n", "gj")
+map(nx, "e", "gk")
+map(nx, "m", "h")
+map(nx, "i", "l")
 
-map(nxo, "l", "e")
-map(nxo, "k", "n")
-map(nxo, "j", "m")
-map(nxo, "h", "i")
+map(nx, "l", "e")
+map(nx, "k", "n")
+map(nx, "j", "m")
+map(nx, "h", "i")
 
+--vim.keymap.del("n", "g%")
+--vim.keymap.del("n", "gx")
 map(nxo, "v", "g")
 map(nxo, "g", "v")
-map(nxo, "vv", "gg")
+map(nx, "vv", "gg")
 
-map(nxo, "w", "b")
-map(nxo, "b", "w")
-map(nxo, "W", "B")
-map(nxo, "B", "W")
+map(nx, "w", "b")
+map(nx, "b", "w")
+map(nx, "W", "B")
+map(nx, "B", "W")
 
-map(nxo, "N", "J")
-map(nxo, "E", "K")
-map(nxo, "M", "H")
-map(nxo, "I", "L")
+map(nx, "N", "J")
+map(nx, "E", "K")
+map(nx, "M", "H")
+map(nx, "I", "L")
 
-map(nxo, "L", "E")
-map(nxo, "K", "N")
-map(nxo, "J", "M")
-map(nxo, "H", "I")
+map(nx, "L", "E")
+map(nx, "K", "N")
+map(nx, "J", "M")
+map(nx, "H", "I")
 
-map(nxo, "V", "G")
-map(nxo, "G", "V")
+map(nx, "V", "G")
+map(nx, "G", "V")
 
 
-map(nxo, '<C-n>', '<C-d>zz')
-map(nxo, '<C-e>', '<C-u>zz')
-map(nxo, '<c-m>', '<c-o>')
-map(nxo, '<c-i>', '<c-i>')
+map(nx, '<C-n>', '<C-d>zz')
+map(nx, '<C-e>', '<C-u>zz')
+map(nx, '<c-m>', '<c-o>')
+map(nx, '<c-i>', '<c-i>')
 
 
 map('n', 'k', 'nzzzv')

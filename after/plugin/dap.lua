@@ -45,10 +45,10 @@ vim.keymap.set("n", "<F5>", dap.continue)
 vim.keymap.set("n", "<F10>", dap.step_over)
 vim.keymap.set("n", "<F11>", dap.step_into)
 
-vim.keymap.set("n", "<leader>br", dap.toggle_breakpoint)
+vim.keymap.set("n", "<leader>br", dap.toggle_breakpoint, {desc='Toggle breakpoint' })
 vim.keymap.set("n", "<leader>bc", function()
     dap.set_breakpoint(vim.fn.input("Breakpoint Condition: "))
-end)
+end, {desc = 'Toggle conditional breakpoint'})
 
 vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapBreakpointCondition', {text='🔵', texthl='', linehl='', numhl=''})

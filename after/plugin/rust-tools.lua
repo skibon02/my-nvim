@@ -23,16 +23,15 @@ rt.setup({
         on_attach = function(_, bufnr)
             local keymap_opts = { buffer = bufnr }
             -- Hover actions
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, keymap_opts )
-            -- code action groups
-            --vim.keymap.set("n", "<Leader>.", rt.code_action_group.code_action_group, keymap_opts)
+            vim.keymap.set("n", "<Leader>.", rt.hover_actions.hover_actions, keymap_opts )
 
             -- Runnables
-            vim.keymap.set("n", "<leader>rr", rt.runnables.runnables)
-            vim.keymap.set("n", "<leader>rd", rt.debuggables.debuggables)
+            vim.keymap.set("n", "<leader>rr", rt.runnables.runnables, {desc='Rust run'})
+            vim.keymap.set("n", "<leader>rd", rt.debuggables.debuggables, {desc='Rust debug'})
 
             -- Floaterm
-            vim.keymap.set('n', '<leader>tr', "<cmd>FloatermNew cargo run<cr>")
+            vim.keymap.set('n', '<leader>tr', "<cmd>FloatermNew cargo run<cr>", {desc='Cargo run terminal'})
+            vim.keymap.set('n', '<leader>tb', "<cmd>FloatermNew cargo build<cr>", {desc='Cargo build terminal'})
 
             -- Prepare dap-ui
             setupDapuiCortex()
