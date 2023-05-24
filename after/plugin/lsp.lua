@@ -89,26 +89,13 @@ vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, {noremap = true, desc
 vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, {noremap = true, desc = 'Rename symbol'})
 vim.keymap.set("n", "<leader>va", vim.lsp.buf.code_action, {desc = 'Code actions'})
 
-vim.keymap.set("i", "<c-m>", vim.lsp.buf.signature_help, {noremap = true})
+vim.keymap.set("i", "<c-space>", vim.lsp.buf.signature_help, {noremap = true})
 
 -- Goto previous/next diagnostic warning/error
 vim.keymap.set("n", "<leader>[", vim.diagnostic.goto_prev, {desc='Diag prev'})
 vim.keymap.set("n", "<leader>]", vim.diagnostic.goto_next, {desc='Diag next'})
 
 vim.diagnostic.config({
-  virtual_text = false,
-  severity_sort = true,
-  float = {
-    border = 'rounded',
-    source = 'always',
-  },
+  virtual_text = true,
+  severity_sort = true
 })
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  {border = 'rounded'}
-)
-
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-  vim.lsp.handlers.signature_help,
-  {border = 'rounded'}
-)
