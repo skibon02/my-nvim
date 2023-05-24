@@ -74,9 +74,9 @@ return require('packer').startup(function(use)
     use { 'windwp/nvim-autopairs' }
 
     -- Error Displayer --
-    use { "folke/trouble.nvim" } -- Docs say to require web-devicons but that didn't work for me.
-
-    use 'nvim-tree/nvim-web-devicons'
+    use { "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" }
+    }
 
     use 'simrat39/symbols-outline.nvim'
 
