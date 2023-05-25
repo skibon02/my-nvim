@@ -10,6 +10,7 @@ return require('packer').startup(function(use)
     }
 
     -- themes
+    use { "catppuccin/nvim", as = "catppuccin" }
     use { "ellisonleao/gruvbox.nvim" }
     use { "shaunsingh/nord.nvim" }
     use { "Mofiqul/vscode.nvim" }
@@ -49,11 +50,18 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter-refactor')
     use('nvim-treesitter/nvim-treesitter-textobjects')
 
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
     --navigation
     --use 'theprimeagen/harpoon'
     use 'theprimeagen/vim-be-good'
 
-    --debugging
+    -- debugging
     use { 'mfussenegger/nvim-dap' }
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use({ 'theHamsta/nvim-dap-virtual-text', as = 'dap-text' })
@@ -101,5 +109,4 @@ return require('packer').startup(function(use)
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
     use "nvim-tree/nvim-tree.lua"
-    use { "catppuccin/nvim", as = "catppuccin" }
 end)
