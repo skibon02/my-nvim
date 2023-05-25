@@ -120,7 +120,9 @@ return require('packer').startup(function(use)
                     auto_trigger = true,
                     keymap = {
                         accept = "<c-n>",
-                        accept_word = "<c-e>"
+                        accept_word = "<c-e>",
+                        next = false,
+                        prev = false
                     }
                 },
                 filetypes = {
