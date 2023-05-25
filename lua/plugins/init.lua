@@ -109,4 +109,28 @@ return require('packer').startup(function(use)
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
     use "nvim-tree/nvim-tree.lua"
+
+    use {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    auto_trigger = true,
+                    keymap = {
+                        accept = "<c-n>",
+                        accept_word = "<c-e>"
+                    }
+                },
+                filetypes = {
+                    rust = true,
+                    cpp = true,
+                    lua = true,
+                    ["."] = true
+                }
+            })
+        end,
+    }
+
 end)

@@ -15,12 +15,13 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
+local n = "n"
 local nx = {"n", "x"}
 local nxo = {"n", "x", "o"}
 map(nx, "n", "gj")
 map(nx, "e", "gk")
 map(nx, "m", "h")
-map(nx, "i", "l")
+map(n, "i", "l")
 
 map(nx, "l", "e")
 map(nx, "k", "n")
