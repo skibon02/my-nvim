@@ -1,4 +1,4 @@
-function setupDapuiCortex()
+function SetupDapuiCortex()
     require("dapui").setup{
         mappings = { remove = "b" },
         layouts = {
@@ -24,21 +24,21 @@ function setupDapuiCortex()
     }
 end
 
-function setupDapuiRust()
+function SetupDapuiRust()
     require("dapui").setup{
         mappings = { remove = "b" },
     }
 end
-setupDapuiRust()
+SetupDapuiCortex()
 
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
 
-vim.keymap.set("n", "<leader>dui", dapui.toggle, {desc = "Toggle dapui"})
-vim.keymap.set("n", "<leader>cdb", function()
+vim.keymap.set("n", "<leader>du", dapui.toggle, {desc = "Toggle dapui"})
+vim.keymap.set("n", "<leader>ds", function()
     dap.terminate()
     dapui.close()
-end)
-vim.keymap.set("n", "<C-H>", function() dapui.eval() end)
+end, { desc = "Stop debugging session"})
+vim.keymap.set("n", "<leader>de", function() dapui.eval() end, {desc = "Evaluate expression"})

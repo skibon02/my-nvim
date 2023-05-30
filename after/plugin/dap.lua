@@ -41,9 +41,10 @@ dap.configurations.rust = dap.configurations.cpp
 -- parse defaul launch.json
 require('dap.ext.vscode').load_launchjs();
 
-vim.keymap.set("n", "<F5>", dap.continue)
-vim.keymap.set("n", "<F10>", dap.step_over)
-vim.keymap.set("n", "<F11>", dap.step_into)
+
+vim.keymap.set("n", "<leader>da", dap.continue, {noremap = true, desc = 'Continue'})
+vim.keymap.set("n", "<c-k>", dap.step_over, {noremap = true})
+vim.keymap.set("n", "<c-h>", dap.step_into, {noremap = true})
 
 vim.keymap.set("n", "<leader>br", dap.toggle_breakpoint, {desc='Toggle breakpoint' })
 vim.keymap.set("n", "<leader>bc", function()
