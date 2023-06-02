@@ -67,72 +67,11 @@ return require('packer').startup(function(use)
     use({ 'theHamsta/nvim-dap-virtual-text', as = 'dap-text' })
     use { 'jedrzejboczar/nvim-dap-cortex-debug', requires = 'mfussenegger/nvim-dap' }
 
-    -- cmake build
-    use 'Civitasv/cmake-tools.nvim'
-    -- Extension To Set Up Clangd Language Server --
-    use 'p00f/clangd_extensions.nvim'
-
-    --usefull stuff
-    use 'voldikss/vim-floaterm'
-    use 'mbbill/undotree'
 
 
-
-    -- Auto Pairs --
-    use { 'windwp/nvim-autopairs' }
-
-    -- Error Displayer --
-    use { "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" }
-    }
     use { "nvim-tree/nvim-web-devicons" }
-
-    use 'simrat39/symbols-outline.nvim'
-
-    -- Which Key --
-    use { "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end }
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
 
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
 
     use "nvim-tree/nvim-tree.lua"
-
-    use {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("copilot").setup({
-                suggestion = {
-                    auto_trigger = true,
-                    keymap = {
-                        accept = "<c-n>",
-                        accept_word = "<c-e>",
-                        next = false,
-                        prev = false
-                    }
-                },
-                filetypes = {
-                    rust = true,
-                    cpp = true,
-                    lua = true,
-                    ["."] = true
-                }
-            })
-        end,
-    }
-
 end)
