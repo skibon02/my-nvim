@@ -1,6 +1,5 @@
 require("bufferline").setup {
     options = {
-        diagnostics = "nvim_lsp",
         themable = true,
         separator_style = "slope",
         show_buffer_close_icons = false,

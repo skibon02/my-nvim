@@ -1,6 +1,5 @@
 -- code debug actions
 local dap = require('dap')
-local dap_cortex_debug = require('dap-cortex-debug')
 
 dap.defaults.fallback.exception_breakpoints = { 'all' }
 
@@ -55,4 +54,3 @@ vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='', linehl='', numhl=''
 vim.fn.sign_define('DapBreakpointCondition', {text='🔵', texthl='', linehl='', numhl=''})
 
 
-require("nvim-dap-virtual-text").setup()
