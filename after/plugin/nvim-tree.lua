@@ -3,12 +3,10 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-local treeutils = require("treeutils.lua")
+local api = require("nvim-tree.api")
 
 -- empty setup using defaults
 local function on_attach(bufnr)
-    local api = require('nvim-tree.api')
-
     local function opts(desc)
         return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
@@ -21,8 +19,16 @@ local function on_attach(bufnr)
     vim.keymap.set('n', 'e', 'k', opts('Up'))
 
     -- cool searching stuff from @kyazdani42
-    vim.keymap.set('n', '<c-f>', treeutils.launch_find_files, opts('Launch Find Files'))
-    vim.keymap.set('n', '<c-g>', treeutils.launch_live_grep, opts('Launch Live Grep'))
+    -- vim.keymap.set('n', '<c-f>', telescope_actions.launch_find_files, opts('Launch Find Files'))
+    -- vim.keymap.set('n', '<c-g>', telescope_actions.launch_live_grep, opts('Launch Live Grep'))
+
+    vim.keymap.set("n", "<CR>", function ()
+        local node = api.tree.get_node_under_cursor()
+        api.node.open.edit()
+        if node and node.type == 'file' then
+            api.tree.close()
+        end
+    end, opts("Tab drop"))
 end
 
 -- OR setup with some options
@@ -48,7 +54,6 @@ vim.keymap.set('n', "<leader>y", ":NvimTreeFocus<CR>", { noremap = true, desc = 
 
 -- Auto-closing thing
 local function tab_win_closed(winnr)
-    local api = require "nvim-tree.api"
     local tabnr = vim.api.nvim_win_get_tabpage(winnr)
     local bufnr = vim.api.nvim_win_get_buf(winnr)
     local buf_info = vim.fn.getbufinfo(bufnr)[1]
