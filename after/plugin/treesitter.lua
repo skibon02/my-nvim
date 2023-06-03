@@ -1,7 +1,14 @@
 
 
 require('nvim-treesitter.configs').setup {
-	ensure_installed = "all",
+	ensure_installed = {
+        "rust",
+        "lua",
+        "c",
+        "vimdoc",
+        "query",
+        "vim"
+    },
 	auto_install = true,
 	highlight = {
 		enable = true,
