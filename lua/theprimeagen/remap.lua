@@ -20,19 +20,20 @@ local nx = {"n", "x"}
 local nxo = {"n", "x", "o"}
 map(nx, "n", "gj")
 map(nx, "e", "gk")
-map(nx, "m", "h")
-map(nx, "i", "l")
+map(nxo, "m", "h")
+map(nxo, "i", "l")
 
-map(nx, "l", "e")
-map(nx, "k", "n")
-map(nx, "j", "m")
+map(nxo, "l", "e")
+map(nxo, "k", "n")
+map(nxo, "j", "m")
 map(nxo, "h", "i")
 
 --vim.keymap.del("n", "g%")
 --vim.keymap.del("n", "gx")
 map(nxo, "v", "g")
 map(nxo, "g", "v")
--- map(nx, "vv", "gg")
+map(nxo, "<c-g>", "<c-v>")
+map(nx, "vv", "gg")
 
 map(nxo, "w", "b")
 map(nxo, "b", "w")
