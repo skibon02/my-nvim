@@ -69,8 +69,9 @@ vim.keymap.set("v", "E", ":m '<-2<CR>gv=gv")
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]], {desc = 'Paste w/o copy'})
 
--- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- I really need this
+vim.keymap.set("i", "<C-c>", "<cmd>w<cr><Esc>")
+vim.keymap.set("i", "<Esc>", "<cmd>w<cr><Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>fa", vim.lsp.buf.format, {desc='Format document'})
