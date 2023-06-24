@@ -31,8 +31,8 @@ rt.setup({
 
             -- Floaterm
             vim.keymap.set('n', '<leader>tr', "<cmd>FloatermNew cargo run<cr>", {desc='Cargo run terminal'})
-            vim.keymap.set('n', '<leader>tb', "<cmd>w<CR><cmd>FloatermNew cargo build --release<cr>", {desc='Cargo build terminal'})
-            vim.keymap.set('n', '<leader>td', "<cmd>w<CR><cmd>FloatermNew cargo build<cr>", {desc='Cargo build terminal'})
+            vim.keymap.set('n', '<leader>tb', "<cmd>w<CR><cmd>FloatermNew cargo mommy build --release<cr>", {desc='Cargo build terminal'})
+            vim.keymap.set('n', '<leader>td', "<cmd>w<CR><cmd>FloatermNew cargo mommy build<cr>", {desc='Cargo build terminal'})
 
             -- Prepare dap-ui
             setupDapuiCortex()
