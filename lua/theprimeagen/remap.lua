@@ -67,7 +67,9 @@ vim.keymap.set("v", "N", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "E", ":m '<-2<CR>gv=gv")
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]], {desc = 'Paste w/o copy'})
+vim.keymap.set("x", "<leader>p", [["_dP]], {desc = 'Paste w/o yank'})
+vim.keymap.set("x", "<leader>y", [["+y]], {desc = 'Yank to system clipboard'})
+vim.keymap.set("x", "<leader>d", [["_d]], {desc = 'Delete w/o yank'})
 
 -- I really need this
 vim.keymap.set("i", "<C-c>", "<cmd>w<cr><Esc>")
