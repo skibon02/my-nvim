@@ -72,7 +72,7 @@ vim.keymap.set("x", "<leader>y", [["+y]], {desc = 'Yank to system clipboard'})
 vim.keymap.set("x", "<leader>d", [["_d]], {desc = 'Delete w/o yank'})
 
 -- I really need this
-vim.keymap.set("i", "<C-c>", "<cmd>w<cr><Esc>")
+vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("i", "<Esc>", "<cmd>w<cr><Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
