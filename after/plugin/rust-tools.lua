@@ -30,9 +30,9 @@ rt.setup({
             vim.keymap.set("n", "<leader>rd", rt.debuggables.debuggables, {desc='Rust debug'})
 
             -- Floaterm
-            vim.keymap.set('n', '<leader>tr', "<cmd>FloatermNew --autoclose=0 cargo mommy run<cr>", {desc='Cargo run terminal'})
-            vim.keymap.set('n', '<leader>tb', "<cmd>w<CR><cmd>FloatermNew --autoclose=0 cargo mommy build --release<cr>", {desc='Cargo build terminal'})
-            vim.keymap.set('n', '<leader>td', "<cmd>w<CR><cmd>FloatermNew --autoclose=0 cargo mommy build<cr>", {desc='Cargo build terminal'})
+            vim.keymap.set('n', '<leader>tr', "<cmd>FloatermNew --autoclose=0 cargo run<cr>", {desc='Cargo run terminal'})
+            vim.keymap.set('n', '<leader>tb', "<cmd>w<CR><cmd>FloatermNew --autoclose=0 cargo build --release<cr>", {desc='Cargo build terminal'})
+            vim.keymap.set('n', '<leader>td', "<cmd>w<CR><cmd>FloatermNew --autoclose=0 cargo build<cr>", {desc='Cargo build terminal'})
 
             -- Prepare dap-ui
             setupDapuiCortex()
