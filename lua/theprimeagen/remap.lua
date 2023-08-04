@@ -107,3 +107,4 @@ vim.keymap.set("n", "<leader>ca", 'ggVG"+y<C-o>', {noremap = true, desc = 'Copy 
 -- not rly useful
 vim.keymap.set({ 'n', 'v', 'x' }, "q", "<nop>")
 vim.keymap.set({ 'n', 'v', 'x' }, "@", "<nop>")
+vim.keymap.set(n, "<CR>", "<nop>")
