@@ -24,6 +24,10 @@ apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-
 cargo install alacritty
 ```
 
+Set global shortcut for alacritty, for example on Linux Mint:
+![image](https://github.com/skibon02/my-nvim/assets/25740003/5be9d316-0a99-4484-8a65-d6074d389ec1)
+
+
 ### Clone repository and setup alacritty config
 ```bash
 cd ~/.config
@@ -31,6 +35,8 @@ git clone https://github.com/skibon02/my-nvim.git nvim
 cd nvim
 ./init_alacritty.sh
 ```
+Install cool font
+https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/FiraMonoNerdFont-Regular.otf
 
 ### Initial installation
 To install on clean system, you need a stable release of neovim (0.9.0 in my case): https://github.com/neovim/neovim/blob/master/INSTALL.md.
