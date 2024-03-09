@@ -29,7 +29,7 @@ cargo install alacritty
 cd ~/.config
 git clone https://github.com/skibon02/my-nvim.git nvim
 cd nvim
-
+./init_alacritty.sh
 ```
 
 ### Initial installation
